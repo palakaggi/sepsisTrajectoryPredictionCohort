@@ -34,7 +34,7 @@ all_charts as
 --select * from all_charts limit 10;
 
 
-select all_charts.*, spo2Tab.spo2, fio2Tab.fio2, oxy_flow_rt.oxygen_flow_rate, sao2Tab.sao2
+select all_charts.*, spo2Tab.spo2, oxy_flow_rt.oxygen_flow_rate, sao2Tab.sao2
 from all_charts
 left outer join
 spo2Tab
@@ -43,12 +43,12 @@ all_charts.subject_id=spo2Tab.subject_id and
 all_charts.stay_id=spo2Tab.stay_id and 
 all_charts.charttime=spo2Tab.charttime
 left outer join
-fio2Tab
-on fio2Tab.hadm_id=all_charts.hadm_id and
-fio2Tab.subject_id=all_charts.subject_id and
-fio2Tab.stay_id=all_charts.stay_id and
-fio2Tab.charttime=all_charts.charttime
-left outer join
+--fio2Tab
+--on fio2Tab.hadm_id=all_charts.hadm_id and
+--fio2Tab.subject_id=all_charts.subject_id and
+--fio2Tab.stay_id=all_charts.stay_id and
+--fio2Tab.charttime=all_charts.charttime
+--left outer join
 oxy_flow_rt
 on all_charts.hadm_id=oxy_flow_rt.hadm_id and
 all_charts.subject_id=oxy_flow_rt.subject_id and
